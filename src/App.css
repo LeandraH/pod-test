@@ -1,0 +1,47 @@
+:root {
+  --tealish: #2ba0aa;
+  --off-white: #f6f6f6;
+  --white: #ffffff;
+  --dark: #282c39;
+  --charcoal-grey: #3d414d;
+  --charcoal-grey-50: rgba(61, 65, 77, 0.5);
+}
+
+.Color-Fill-1-copy-2 {
+  background-color: var(--off-white);
+  width: 1501px;
+  height: 905px;
+  margin-bottom: -70px;
+  padding-bottom: 70px;
+}
+
+.ellipse-2977 {
+	width: 43.8px;
+	height: 43.8px;
+    border-radius: 100%;
+	background-color: var(--charcoal-grey);
+    margin-top: 5.8px;
+    margin-left: 35px;
+    color: var(--white);
+}
+
+.logo {
+	width: 46.9px;
+    margin-left: -10.7px;
+    padding-top: 15.0px;
+    font-size: 13.8px;
+}
+
+.logo1 {
+    color: var(--charcoal-grey);
+}
+
+.headerRight {
+    width: 200px;
+}
+
+.footer-bkgrd-copy-2 {
+	width: 1500px;
+	height: 70px;
+	background-color: var(--charcoal-grey);
+}
