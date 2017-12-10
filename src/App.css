@@ -9,7 +9,7 @@
 
 .Color-Fill-1-copy-2 {
     background-color: var(--off-white);
-    width: 1501px;
+    min-width: 1501px;
     min-height: 905px;
     margin-bottom: -70px;
     padding-bottom: 70px;
@@ -46,7 +46,7 @@
 }
 
 .footer-bkgrd-copy-2 {
-    width: 1500px;
+    min-width: 1500px;
 }
 
 .close-button {
@@ -143,4 +143,10 @@
     border-radius: 10px;
     background-color: var(--white);
     border: solid 2px rgba(61, 65, 77, 0.2);
+    margin: 219px auto 0 auto;
+    text-align: center;
+}
+
+.add-records-box-empty p {
+    color: var(--charcoal-grey);
 }

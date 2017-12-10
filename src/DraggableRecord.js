@@ -9,8 +9,8 @@ import { TYPES } from './constants';
 
 const spec = {
     beginDrag: props => ({ id: props.record }),
-    endDrag: (props, monitor) => {
-        const droppedInBox = monitor.getDropResult();
+    endDrag: (props, monitor, component) => {
+        const droppedInBox = props.record;
         if (droppedInBox) {
             props.linkRecord(droppedInBox);
         }
@@ -19,11 +19,11 @@ const spec = {
 
 const collect = (connect, monitor) => ({
     connectDragSource: connect.dragSource(),
-    connectDragPreview: connect.dragPreview(),
-    isDragging: monitor.isDragging()
+    connectDragPreview: connect.dragPreview()
+    // isDragging: monitor.isDragging()
 });
 
-const InnerDisplay = ({ record, style }) => (
+export const InnerDisplay = ({ record, style }) => (
     <Card key={`record${record}`} className="record" style={style}>
         <CardText>
             <span className="record-number">{record}</span>
@@ -34,35 +34,35 @@ const InnerDisplay = ({ record, style }) => (
 );
 
 export class DraggableRecordDisplay extends Component {
-    componentDidMount() {
-        const { connectDragPreview, record } = this.props;
-        if (connectDragPreview) {
-            const style = { borderRadius: '10px', cursor: 'move', border: 'solid 3px #46c6d1' };
-            connectDragPreview(<div>
-                <InnerDisplay record={record} style={style}/>
-            </div>);
-        }
-    }
+    // componentDidMount() {
+    //     const { connectDragPreview, record, isDragging } = this.props;
+    //     if (isDragging) {
+    //         const style = { borderRadius: '10px', cursor: 'move', border: 'solid 3px #46c6d1' };
+    //         connectDragPreview(<div>
+    //             <InnerDisplay record={record} style={style}/>
+    //         </div>);
+    //     }
+    // }
 
     render() {
-        const { isDragging, connectDragSource, connectDragPreview, record } = this.props;
+        const { connectDragSource, connectDragPreview, record } = this.props;
         const style = { borderRadius: '10px', cursor: 'move' };
         return connectDragSource(<div>
-            <InnerDisplay record={record} style={style}/>
+            <InnerDisplay record={record} style={style} />
         </div>);
     }
 }
 
 const mapStateToProps = state => ({});
 
-const mapDispatchToProps = {
-    linkRecord
-};
+const mapDispatchToProps = dispatch => ({
+    linkRecord: record => dispatch(linkRecord(record))
+});
 
-export default DragSource(
-    TYPES.RECORD, spec, collect
-)(connect(
+export default connect(
     mapStateToProps, mapDispatchToProps
+)(DragSource(
+    TYPES.RECORD, spec, collect
 )(DraggableRecordDisplay));
 
 DraggableRecordDisplay.propTypes = {

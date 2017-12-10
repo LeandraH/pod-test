@@ -5,16 +5,26 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
 import { TYPES } from './constants';
+import add from './add-copy-4.png';
 
 const spec = {
-    canDrop: props => !!props.linkedRecord
+    drop: (props) => { record: props.record }
 };
 
-const collect = (connect, monitor) => ({});
+const collect = (connect, monitor) => ({
+    connectDropTarget: connect.dropTarget(),
+    isOver: monitor.isOver()
+});
 
-const AddRecordBoxDisplay = () => (
-    <Card className="add-records-box">
-    </Card>
+const AddRecordBoxDisplay = (props) => (
+    props.connectDropTarget(<div>
+        <Card className="add-records-box">
+            {!props.linkedRecord && <CardText className="add-records-box-empty">
+                <img src={add} alt="add" />
+                <p>RECORD</p>
+            </CardText>}
+        </Card>
+    </div>)
 );
 
 const mapStateToProps = state => ({
