@@ -10,9 +10,14 @@
 .Color-Fill-1-copy-2 {
   background-color: var(--off-white);
   width: 1501px;
-  height: 905px;
+  min-height: 905px;
   margin-bottom: -70px;
   padding-bottom: 70px;
+}
+
+.header-bkgrd {
+	width: 1500px;
+	height: 68px;
 }
 
 .ellipse-2977 {
@@ -42,6 +47,46 @@
 
 .footer-bkgrd-copy-2 {
 	width: 1500px;
-	height: 70px;
-	background-color: var(--charcoal-grey);
+}
+
+.close-button {
+    height: 21.7px;
+    width: 21.7px;
+}
+
+.not-saved {
+    width: 173px;
+	height: 12px;
+	font-size: 12px;
+	text-align: center;
+	color: var(--white);
+    padding-left: 27.2px;
+}
+
+.save-draft {
+    width: 137px;
+	height: 49px;
+	background-color: var(--dark);
+    border-radius: 0;
+}
+
+.side-menu {
+    float: right;
+    width: 68px;
+
+}
+
+.side-menu div span {
+    width: 68px;
+    height: 39px;
+    text-align: center;
+}
+
+.side-menu div span div {
+    font-size: 12px;
+    padding: 0;
+}
+
+.side-menu div {
+    padding: 1px;
 }

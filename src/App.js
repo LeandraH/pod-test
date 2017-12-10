@@ -1,16 +1,23 @@
 import React from 'react';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
+import { createStore } from 'redux';
+import { Provider } from 'react-redux';
 
 import Header from './Header';
+import RecordBox from './RecordBox';
+import SideMenu from './SideMenu';
 import Footer from './Footer';
 
+import reducer from './reducer';
+
 import './App.css';
+import { COLORS } from './constants';
 
 const muiTheme = getMuiTheme({
     palette: {
-        primary1Color: '#ffffff',
-        primary2Color: 'red',
+        primary1Color: COLORS.WHITE,
+        primary2Color: '#282c39',
         primary3Color: 'green',
         accent1Color: '#2ba0aa',
         accent2Color: 'purple',
@@ -21,19 +28,27 @@ const muiTheme = getMuiTheme({
         pickerHeaderColor: 'cyan500',
         clockCircleColor: 'fade(darkBlack, 0.07)',
         shadowColor: 'fullBlack',
-        textColor: '#282c39',
+        textColor: '#ffffff',
         alternateTextColor: '#282c39'
     },
-    fontFamily: ['Droid Sans', 'arial', 'sans-serif']
+    fontFamily: 'Droid Sans, arial, sans-serif'
 });
 
+const store = createStore(reducer);
+
 const App = () => (
-    <MuiThemeProvider muiTheme={muiTheme}>
-        <div className="App Color-Fill-1-copy-2">
-            <Header />
-        </div>
-        <Footer />
-    </MuiThemeProvider>
+    <Provider store={store}>
+        <MuiThemeProvider muiTheme={muiTheme}>
+            <div className="App Color-Fill-1-copy-2">
+                <Header />
+                <div>
+                    <RecordBox />
+                    <SideMenu />
+                </div>
+            </div>
+            <Footer />
+        </MuiThemeProvider>
+    </Provider>
 );
 
 export default App;

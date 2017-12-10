@@ -18,7 +18,7 @@ const headerRight = (<Tabs className="headerRight" initialSelectedIndex={1}>
 </Tabs>);
 
 const Header = () => (
-    <AppBar className="Header-BKGRD"
+    <AppBar className="header-bkgrd"
         iconElementLeft={headerLeft}
         iconElementRight={headerRight}
     />
