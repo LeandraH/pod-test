@@ -1,12 +1,15 @@
-import React from 'react';
+import React, { Component } from 'react';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
+import HTML5Backend from 'react-dnd-html5-backend';
+import { DragDropContext } from 'react-dnd';
 
 import Header from './Header';
 import RecordBox from './RecordBox';
 import SideMenu from './SideMenu';
+import AddRecordBox from './AddRecordBox';
 import Footer from './Footer';
 
 import reducer from './reducer';
@@ -36,19 +39,22 @@ const muiTheme = getMuiTheme({
 
 const store = createStore(reducer);
 
-const App = () => (
-    <Provider store={store}>
-        <MuiThemeProvider muiTheme={muiTheme}>
-            <div className="App Color-Fill-1-copy-2">
-                <Header />
-                <div>
-                    <RecordBox />
-                    <SideMenu />
+export class AppDisplay extends Component {
+    render() {
+        return (<Provider store={store}>
+            <MuiThemeProvider muiTheme={muiTheme}>
+                <div className="App Color-Fill-1-copy-2">
+                    <Header />
+                    <div>
+                        <RecordBox />
+                        <SideMenu />
+                        <AddRecordBox />
+                    </div>
                 </div>
-            </div>
-            <Footer />
-        </MuiThemeProvider>
-    </Provider>
-);
+                <Footer />
+            </MuiThemeProvider>
+        </Provider>);
+    }
+}
 
-export default App;
+export default DragDropContext(HTML5Backend)(AppDisplay);

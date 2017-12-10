@@ -10,7 +10,7 @@ export const FooterDisplay = (props) => {
     if (props.podState === 'notSaved') {
         return (<Toolbar className="footer-bkgrd-copy-2" style={{ backgroundColor: '#3d414d', height: '70px' }}>
                 <ToolbarGroup>
-                    <img src={closeSymbol} className="close-button" />
+                    <img src={closeSymbol} className="close-button" alt="close" />
                     <p className="not-saved">Pod {props.currentPod} is currently NOT SAVED</p>
                 </ToolbarGroup>
                 <ToolbarGroup>

@@ -6,7 +6,7 @@ import { FooterDisplay } from './Footer';
 describe('Footer', () => {
     it('renders when the pod is not saved', () => {
         const wrapper = shallow(<FooterDisplay podState="notSaved" />);
-        const expected = <img src="close.png" className="close-button" />;
+        const expected = <img src="close.png" className="close-button" alt="close" />;
         expect(wrapper.contains(expected)).toEqual(true);
     });
 });
