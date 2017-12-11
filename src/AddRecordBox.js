@@ -2,13 +2,12 @@ import React from 'react';
 import { Card, CardText } from 'material-ui/Card';
 import { DropTarget } from 'react-dnd';
 import { connect } from 'react-redux';
-import PropTypes from 'prop-types';
 
 import { TYPES } from './constants';
 import add from './add-copy-4.png';
 
 const spec = {
-    drop: (props) => { record: props.record }
+    drop: (props) => ({ record: props.record })
 };
 
 const collect = (connect, monitor) => ({

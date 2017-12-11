@@ -45,7 +45,7 @@ export class DraggableRecordDisplay extends Component {
     // }
 
     render() {
-        const { connectDragSource, connectDragPreview, record } = this.props;
+        const { connectDragSource, record } = this.props;
         const style = { borderRadius: '10px', cursor: 'move' };
         return connectDragSource(<div>
             <InnerDisplay record={record} style={style} />
