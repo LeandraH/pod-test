@@ -9,6 +9,8 @@ import { DragDropContext } from 'react-dnd';
 import Header from './Header';
 import RecordBox from './RecordBox';
 import SideMenu from './SideMenu';
+import InfoBox from './InfoBox';
+import PodCircle from './PodCircle';
 import AddRecordBox from './AddRecordBox';
 import Footer from './Footer';
 
@@ -16,6 +18,8 @@ import reducer from './reducer';
 
 import './App.css';
 import { COLORS } from './constants';
+
+import openLock from './open-lock.png';
 
 const muiTheme = getMuiTheme({
     palette: {
@@ -31,13 +35,14 @@ const muiTheme = getMuiTheme({
         pickerHeaderColor: 'cyan500',
         clockCircleColor: 'fade(darkBlack, 0.07)',
         shadowColor: 'fullBlack',
-        textColor: '#ffffff',
+        textColor: COLORS.WHITE,
         alternateTextColor: '#282c39'
     },
     fontFamily: 'Droid Sans, arial, sans-serif'
 });
 
-const store = createStore(reducer);
+const store = createStore(reducer, window && window.__REDUX_DEVTOOLS_EXTENSION__
+    && window.__REDUX_DEVTOOLS_EXTENSION__());
 
 export class AppDisplay extends Component {
     render() {
@@ -48,6 +53,10 @@ export class AppDisplay extends Component {
                     <div>
                         <RecordBox />
                         <SideMenu />
+                        <InfoBox />
+                        <PodCircle />
+                        <svg width="700" height="700"><line x1="500" y1="265" x2="630" y2="265" stroke="#d7d7d9"/></svg>
+                        <img src={openLock} className="lock" alt="locked" />
                         <AddRecordBox />
                     </div>
                 </div>

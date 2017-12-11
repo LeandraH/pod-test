@@ -23,6 +23,11 @@ const AddRecordBoxDisplay = (props) => (
                 <img src={add} alt="add" />
                 <p>RECORD</p>
             </CardText>}
+            {props.linkedRecord && <CardText className="add-records-box-added">
+                <span style={{ fontSize: '22px' }}>{props.linkedRecord}</span>
+                <br />
+                <span>RECORD</span>
+            </CardText>}
         </Card>
     </div>)
 );
